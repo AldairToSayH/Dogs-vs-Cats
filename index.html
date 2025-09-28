@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de la Ingeniería de Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 4rem;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #8b5cf6 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-code text-blue-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900">Ingeniería de Software</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#historia" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Historia</a>
+                    <a href="#evolucion" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Evolución</a>
+                    <a href="#hitos" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Hitos</a>
+                    <a href="#futuro" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Futuro</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#historia" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Historia</a>
+                <a href="#evolucion" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Evolución</a>
+                <a href="#hitos" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Hitos</a>
+                <a href="#futuro" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Futuro</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Historia y Evolución de la <span class="text-blue-200">Ingeniería de Software</span></h1>
+                    <p class="text-xl text-blue-100 mb-8">Desde sus humildes comienzos hasta la disciplina fundamental que es hoy, exploramos el fascinante viaje de la ingeniería de software.</p>
+                    <div class="flex space-x-4">
+                        <a href="#historia" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-lg transition duration-300">Explorar Historia</a>
+                        <a href="#evolucion" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition duration-300">Ver Evolución</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate-fade-in delay-1">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Evolución de la tecnología" class="rounded-xl shadow-2xl border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia Section -->
+    <section id="historia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Los Orígenes de la Ingeniería de Software</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">La ingeniería de software surgió como respuesta a la creciente complejidad de los sistemas informáticos y la necesidad de abordar los problemas de desarrollo de manera sistemática.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-1">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-microchip text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">La Crisis del Software (1968)</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">El término "ingeniería de software" fue acuñado por primera vez en la Conferencia de la OTAN en 1968, donde se identificó la "crisis del software": proyectos que excedían presupuestos, no cumplían requisitos o nunca se completaban.</p>
+                    <p class="text-gray-600">Esta crisis llevó al reconocimiento de que el desarrollo de software necesitaba principios de ingeniería para ser manejable y predecible.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-2">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-book text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Primeros Fundamentos</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">En los años 70, se establecieron los primeros principios fundamentales con libros como "The Mythical Man-Month" de Fred Brooks (1975) que destacaba que "añadir personas a un proyecto atrasado lo retrasa más".</p>
+                    <p class="text-gray-600">También surgieron los primeros modelos de ciclo de vida como el modelo en cascada, propuesto por Winston Royce en 1970.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolución Section -->
+    <section id="evolucion" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Evolución de la Disciplina</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">La ingeniería de software ha evolucionado significativamente desde sus inicios, adaptándose a los cambios tecnológicos y las nuevas necesidades del mercado.</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="timeline-item animate-fade-in delay-1">
+                    <div class="timeline-dot"><i class="fas fa-1960s"></i></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Década de 1960-1970: Los Fundamentos</h3>
+                        <p class="text-gray-600 mb-4">Desarrollo de los primeros lenguajes de programación de alto nivel como FORTRAN y COBOL. Surge el concepto de "ingeniería de software" para abordar la crisis del software.</p>
+                        <ul class="list-disc pl-5 text-gray-600">
+                            <li>Primeros sistemas operativos</li>
+                            <li>Programación estructurada</li>
+                            <li>Modelo en cascada</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-fade-in delay-2">
+                    <div class="timeline-dot"><i class="fas fa-1980s"></i></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Década de 1980: Orientación a Objetos</h3>
+                        <p class="text-gray-600 mb-4">Adopción de la programación orientada a objetos con lenguajes como C++ y Smalltalk. Surgen metodologías formales y herramientas CASE (Computer-Aided Software Engineering).</p>
+                        <ul class="list-disc pl-5 text-gray-600">
+                            <li>Lenguaje C++ (1983)</li>
+                            <li>Herramientas CASE</li>
+                            <li>Modelos de capacidad de proceso</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-fade-in delay-3">
+                    <div class="timeline-dot"><i class="fas fa-1990s"></i></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Década de 1990: Internet y Métodos Ágiles</h3>
+                        <p class="text-gray-600 mb-4">Explosión de la web y el software distribuido. Surgen metodologías ágiles como respuesta a los procesos pesados de desarrollo. Aparece Java y el software open source gana importancia.</p>
+                        <ul class="list-disc pl-5 text-gray-600">
+                            <li>Manifiesto Ágil (2001)</li>
+                            <li>Lenguaje Java (1995)</li>
+                            <li>Linux y open source</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-fade-in delay-4">
+                    <div class="timeline-dot"><i class="fas fa-2000s"></i></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Siglo XXI: Cloud, DevOps y AI</h3>
+                        <p class="text-gray-600 mb-4">Computación en la nube, desarrollo continuo (DevOps), inteligencia artificial en el desarrollo de software. Microservicios, containers y desarrollo low-code.</p>
+                        <ul class="list-disc pl-5 text-gray-600">
+                            <li>Computación en la nube</li>
+                            <li>DevOps y CI/CD</li>
+                            <li>IA en desarrollo (GitHub Copilot)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hitos Section -->
+    <section id="hitos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Hitos Importantes</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Eventos clave que marcaron el desarrollo de la ingeniería de software como disciplina.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-1">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">1968: Conferencia de la OTAN</h3>
+                    <p class="text-gray-600">Primera vez que se usa el término "ingeniería de software" para describir la aplicación sistemática de principios de ingeniería al desarrollo de software.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-2">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">1975: The Mythical Man-Month</h3>
+                    <p class="text-gray-600">Fred Brooks publica este libro seminal que describe los desafíos del desarrollo de software, incluyendo la famosa "Ley de Brooks".</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-3">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">2001: Manifiesto Ágil</h3>
+                    <p class="text-gray-600">17 desarrolladores se reúnen en Utah para redactar el Manifiesto Ágil, marcando un cambio hacia metodologías más flexibles y adaptativas.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-1">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">2006: Nace AWS</h3>
+                    <p class="text-gray-600">Amazon Web Services lanza sus primeros servicios en la nube, revolucionando cómo se despliega y escala el software.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-2">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">2008: GitHub</h3>
+                    <p class="text-gray-600">Lanzamiento de GitHub, que se convertiría en la plataforma central para el desarrollo colaborativo de software open source.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-3">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">2021: GitHub Copilot</h3>
+                    <p class="text-gray-600">Lanzamiento de la primera herramienta de IA que sugiere código en tiempo real, marcando el inicio de una nueva era en el desarrollo asistido por IA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Futuro Section -->
+    <section id="futuro" class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">El Futuro de la Ingeniería de Software</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Las tendencias emergentes que están dando forma al futuro de la disciplina.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-1">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Inteligencia Artificial en el Desarrollo</h3>
+                    <p class="text-gray-600 mb-6">Las herramientas de IA como GitHub Copilot están comenzando a asistir a los desarrolladores en tiempo real, sugiriendo código y detectando errores. Se espera que la IA juegue un papel cada vez mayor en:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Generación automática de código</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Detección avanzada de bugs</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p class="ml-3 text-gray-600">Optimización automática de rendimiento</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-2">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Desarrollo Low-Code/No-Code</h3>
+                    <p class="text-gray-600 mb-6">Las plataformas que permiten crear aplicaciones con poca o ninguna programación están democratizando el desarrollo de software, permitiendo a los "ciudadanos desarrolladores" crear soluciones sin ser expertos en programación.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-medium text-blue-800 mb-2">Impacto esperado:</h4>
+                        <p class="text-blue-700">Para 2025, se espera que el 70% de las nuevas aplicaciones sean desarrolladas usando plataformas low-code o no-code (Gartner).</p>
+                    </div>
+                    <p class="text-gray-600">Esto cambiará el rol de los ingenieros de software hacia más supervisión, integración y desarrollo de componentes complejos.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-3">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Computación Cuántica</h3>
+                    <p class="text-gray-600 mb-4">Aunque aún en etapas tempranas, la computación cuántica promete revolucionar ciertas áreas como:</p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <p class="text-purple-800 font-medium">Criptografía</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <p class="text-purple-800 font-medium">Optimización</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <p class="text-purple-800 font-medium">Simulación molecular</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg">
+                            <p class="text-purple-800 font-medium">Machine Learning</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">Los lenguajes de programación cuántica como Q# están emergiendo, y los ingenieros de software necesitarán adaptarse a estos nuevos paradigmas.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 card-hover transition duration-300 animate-fade-in delay-4">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Ética y Seguridad</h3>
+                    <p class="text-gray-600 mb-6">Con el software afectando cada aspecto de nuestras vidas, los ingenieros enfrentan nuevos desafíos éticos y de seguridad:</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-red-100 text-red-600">
+                                    <i class="fas fa-shield-alt text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-600">Privacidad y protección de datos (GDPR, CCPA)</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-600">
+                                    <i class="fas fa-balance-scale text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-600">Sesgos algorítmicos y equidad en IA</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-yellow-100 text-yellow-600">
+                                    <i class="fas fa-lock text-xs"></i>
+                                </div>
+                            </div>
+                            <p class="ml-3 text-gray-600">Seguridad en un mundo hiperconectado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">La Ingeniería de Software: Una Disciplina en Constante Evolución</h2>
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-8">Desde sus humildes comienzos en la década de 1960 hasta convertirse en una de las disciplinas más dinámicas e importantes del siglo XXI, la ingeniería de software continúa evolucionando para satisfacer las necesidades cambiantes de la sociedad y la tecnología.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#historia" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium shadow-lg transition duration-300 inline-flex items-center">
+                    <i class="fas fa-history mr-2"></i> Volver al Inicio
+                </a>
+                <a href="https://en.wikipedia.org/wiki/Software_engineering" target="_blank" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 px-6 py-3 rounded-lg font-medium transition duration-300 inline-flex items-center">
+                    <i class="fas fa-external-link-alt mr-2"></i> Saber Más
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Ingeniería de Software</h3>
+                    <p class="mb-4">Explorando la historia, evolución y futuro de esta fascinante disciplina.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Secciones</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#historia" class="hover:text-white transition">Historia</a></li>
+                        <li><a href="#evolucion" class="hover:text-white transition">Evolución</a></li>
+                        <li><a href="#hitos" class="hover:text-white transition">Hitos</a></li>
+                        <li><a href="#futuro" class="hover:text-white transition">Futuro</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Recursos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.computer.org/" target="_blank" class="hover:text-white transition">IEEE Computer Society</a></li>
+                        <li><a href="https://www.acm.org/" target="_blank" class="hover:text-white transition">ACM</a></li>
+                        <li><a href="https://agilemanifesto.org/" target="_blank" class="hover:text-white transition">Manifiesto Ágil</a></li>
+                        <li><a href="https://www.sei.cmu.edu/" target="_blank" class="hover:text-white transition">SEI Carnegie Mellon</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">Suscríbete</h3>
+                    <p class="mb-4">Recibe actualizaciones sobre nuevos contenidos.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Tu email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p>© 2023 Historia de la Ingeniería de Software. Todos los derechos reservados.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Términos</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Scroll to target
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on page load
+        window.addEventListener('load', animateOnScroll);
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
